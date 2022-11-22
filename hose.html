@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ساعة</title>
+    <link rel="stylesheet" href="style1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&family=Oleo+Script&family=Oswald:wght@200;300&family=Roboto+Condensed:wght@300&family=Roboto+Slab:wght@300&family=Rubik+Moonrocks&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <article id="home3">
+        <img name="silder_show"  src="" />
+        
+        <div id="sider_box">
+            <div id="sider1_box">
+                <div id="time"> 
+                    <h1 id="settime">23:00:00</h1>
+                </div>
+                <div id="data">
+                    <p id="setdata">8-7-2022</p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <script>
+
+function UpdateDate(){
+    var data = new Date(); 
+    var settime = document.getElementById("settime"); 
+    settime.innerHTML = data.getHours() + " : " +  data.getMinutes() + " : " +  data.getSeconds();
+    //  الساعة : الدقايق : الثواني 
+    var setdata = document.getElementById("setdata");
+    setdata.innerHTML = data.getDate()+"-"+ parseInt(data.getMonth()+1)+ "-" +data.getFullYear();
+}
+setInterval(UpdateDate,100);
+onload = UpdateDate()
+
+class Add{
+    constructor(){
+      this.images = []
+      this.images[0] = "image/img1.jpg"
+      this.images[1] = "image/img2.png"
+      this.images[2] = "image/img3.jpg"
+      this.images[3] = "image/img4.jpg"
+      this.counter = 0 ;
+
+      this.Play()
+
+      setInterval(()=>{
+          this.Play();
+      },2000)
+    }
+    
+    Play(){
+        if(this.counter < this.images.length - 1){
+          this.counter++
+        }else{
+          this.counter = 0;
+        }
+        document.silder_show.src = this.images[this.counter];
+    }
+}
+onload = new Add(); 
+
+
+    </script>
+</body>
+</html>

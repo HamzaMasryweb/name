@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تشفير</title>
+    <link rel="stylesheet" href="style1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&family=Oleo+Script&family=Oswald:wght@200;300&family=Roboto+Condensed:wght@300&family=Roboto+Slab:wght@300&family=Rubik+Moonrocks&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <article id="home1">
+        <textarea name="text" id="text1"></textarea>
+        <br>
+        <button type="button" id="btn3">cipher</button>
+        <br>
+        <textarea name="text" id="text2"></textarea>
+        <br>
+        <button type="button" id="btn4"> Decrypt</button>
+        <br>
+        <textarea name="text" id="text3"></textarea>
+        <br>
+        <input type="color" id="color">
+
+    </article>
+
+
+<script>
+    let btn3 = document.getElementById("btn3");
+let btn4 = document.getElementById("btn4");
+let text3 = document.getElementById("text1");
+let text4 = document.getElementById("text2");
+let res = document.getElementById("text3");
+
+btn3.addEventListener("click" ,()=>{
+    res.value = btoa(text3.value)
+})
+
+btn4.addEventListener("click" ,()=>{
+    res.value = atob(text4.value)
+})
+
+let color = document.getElementById("color");
+
+color.addEventListener("change",()=>{
+    document.body.style.background = color.value ;
+    localStorage.setItem("clor", color.value )
+})
+
+if(localStorage.getItem("clor")!= null){
+    document.body.style.background = localStorage.getItem("clor")
+}
+</script>
+
+</body>
+</html>
